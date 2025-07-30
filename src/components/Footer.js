@@ -1,4 +1,4 @@
-import version from '../version'; // ❌ This expects a default export
+import { version } from '../version';
 
 const Footer = () => (
   <footer style={{
