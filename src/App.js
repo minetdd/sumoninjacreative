@@ -1,18 +1,20 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './theme/theme'; 
 import './styles/App.css';
-import ComingSoon from './pages/ComingSoon';
 import Footer from './components/Footer';
+import AppRoutes from './routes/AppRoutes'; // <-- Fixed import path
 
 function App() {
   return (
-    <Router>
-      <div style={{ minHeight: '100vh', position: 'relative', paddingBottom: 64 }}>
-        <Routes>
-          <Route path="*" element={<ComingSoon />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <div style={{ minHeight: '100vh', position: 'relative', paddingBottom: 64 }}>
+          <AppRoutes /> {/* Use the routes here */}
+          <Footer />
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 
